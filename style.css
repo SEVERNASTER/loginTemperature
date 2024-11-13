@@ -11,21 +11,163 @@ body {
     align-items: center;
     min-height: 100vh;
     background-color: #1f293a;
+    overflow-y: hidden;
+    overflow-x: hidden;
 }
 
-/* .wrapper {
+/* home page screen */
+
+.home-page {
+    position: relative;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* border: solid 3px red; */
+}
+
+/* .home-page:hover .sign-up-container {
+    transform: translateY(0);
+}
+
+.home-page:hover .login-container {
+    transform: translateY(-100%);
+} */
+
+.login-container, .sign-up-container {
+    transition: 1s;
+    transition-timing-function: ease-in;
+}
+
+/* ventana de alerta personalizada */
+
+.custom-alert-window {
+    position: absolute;
+    top: 0;
+    background-color: #ee4b4b;
+    display: flex;
+    color: #fff;
+    font-weight: 600;
+    height: 50px;
+    width: 30%;
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+    gap: 10px;
+    transform: translateY(-100%);
+    z-index: 20;
+    transition: .5s;
+}
+
+#alert {
+    display: none;
+}
+
+#error {
+    display: none;
+}
+
+/* .custom-alert-window:hover {
+    transform: translateY(20px);
+} */
+
+
+.sign-up-container {
+    transform: translateY(100%);
+}
+
+
+/* sign up screen */
+.sign-up-container {
+    position: absolute;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    /* transform: translateY(100%); */
+    /* border: solid 3px yellow; */
+}
+
+.signin-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: solid 3px #0ef;
+    height: 510px;
+    width: 410px;
+    overflow: hidden;
+    border-radius: 20px;
+    transition: .5s;
+    /* box-shadow: 0 0 50px #0ef; */
+}
+
+/* .signin-wrapper:hover {
+    filter: hue-rotate(180deg);
+} */
+
+@keyframes rotate-colors {
+    100% {
+        filter: hue-rotate(360deg);
+    }
+}
+
+.wrapper::before {
+    display: none;
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: 400px;
+    width: 400px;
+    background: linear-gradient(180deg, transparent, #0ef, #0ef);
+    transform-origin: top left;
+    animation: rotatePseudoElements 4s linear infinite;
+    z-index: -10;
+}
+
+.wrapper::after {
+    display: none;
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: 400px;
+    width: 400px;
+    background: linear-gradient(180deg, transparent, #0ef, #0ef);
+    transform-origin: top left;
+    animation: rotatePseudoElements 4s linear infinite;
+    animation-delay: -2s;
+    z-index: -10;
+
+}
+
+@keyframes rotatePseudoElements {
+    100%{
+        transform: rotate(360deg);
+    }
+}
+
+.wrapper.show-before::before, .wrapper.show-after::after {
+    display: block;
+}
+
+.wrapper {
     position: relative;
     width: 400px;
     height: 500px;
     background-color: #000;
-    box-shadow: 0 0 50px #0ef;
+    /* box-shadow: 0 0 50px #0ef; */
     border-radius: 20px;
     padding: 40px;
     transition: 2s;
 }
 
-.wrapper:hover {
-    transform: rotateY(180deg);
+@keyframes sign-up-animation {
+    100% {
+        filter: hue-rotate(360deg);
+    }
 }
 
 .form-wrapper {
@@ -70,7 +212,8 @@ h2 {
     outline: none;
 }
 
-.input-group input:focus~label {
+.input-group input:focus~label,
+.input-group input:valid~label{
     top: -5px;
 }
 
@@ -87,9 +230,16 @@ h2 {
     accent-color: #0ef;
 }
 
-button {
+.signup-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.signup-buttons button {
     position: relative;
-    width: 100%;
+    width: 50%;
     height: 40px;
     background-color: #0ef;
     box-shadow: 0 0 10px #0ef;
@@ -100,6 +250,12 @@ button {
     border-radius: 30px;
     border: none;
     outline: none;
+    margin-top: 20px;
+    transition: .3s;
+}
+
+.signup-buttons button:hover {
+    scale: 1.1;
 }
 
 .sign-up-link {
@@ -120,18 +276,23 @@ button {
 
 .sign-up-link p a:hover {
     text-decoration: underline;
-} */
+}
 
-.container {
+
+
+
+.login-container {
     position: relative;
     width: 256px;
-    height: 256px;
+    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
+    /* border: solid 3px white; */
 }
 
-.container span {
+.login-container span {
+    /* display: none; */
     position: absolute;
     left: 0;
     width: 32px;
@@ -140,8 +301,9 @@ button {
     border-radius: 8px;
     transform-origin: 128px;
     transform: scale(2.2) rotate(calc(var(--i) * (360deg / 50)));
-    animation: animateBlink 3s linear infinite;
-    animation-delay: calc(var(--i) * (3s / 50));
+    transition: .5s;
+    /* animation: animateBlink 3s linear infinite; */
+    /* animation-delay: calc(var(--i) * (3s / 50)); */
 }
 
 @keyframes animateBlink {
@@ -155,7 +317,7 @@ button {
 }
 
 .login-box {
-    position: absolute;
+    position: absolute; 
     width: 400px;
 }
 
@@ -255,26 +417,333 @@ button {
     text-decoration: underline;
 }
 
+
+/* panel */
+
+
+
+.panel-container {
+    border: solid 5px #00ffff;
+    height: 400px;
+    width: 500px;
+    display: grid;
+    grid-template-rows: 30% 45% 25%;
+    border-radius: 15px;
+    animation: panel-shadow 3s ease-out infinite;
+}
+
+@keyframes panel-shadow {
+    0% {
+        box-shadow: 0 0 0px #B915CC;
+    }50%{
+        box-shadow: 0 0 70px #B915CC;
+    }100%{
+        box-shadow: 0 0 0px #B915CC;
+    }
+}
+
+.panel-title {
+    margin: auto;
+    font-size: 25px;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+}
+
+.data-wrapper {
+    height: 100%;
+    width: 100%;
+    font-size: 27px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 100px;
+    color: #00ffff;
+    gap: 15px;
+}
+
+.data-wrapper span {
+    color: #fff;
+    font-weight: 600;
+}
+
+.buttons-wrapper {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.buttons-wrapper button {
+    height: 40px;
+    font-size: 16px;
+    padding: 0 5px;
+    background-color: #EA7C25;
+    color: #000;
+    border-radius: 15px;
+    border: solid 3px #000;
+    transition: .5s;
+}
+
+.buttons-wrapper button:hover {
+    scale: 1.1;
+}
+
+
+
+
+/* codgio para la tabla de datos */
+
+.table-wrapper {
+    border: solid 3px #00ffff;
+    height: 450px;
+    width: 800px;
+    /* overflow-y: auto; */
+    overflow-x: hidden;
+    display: grid;
+    grid-template-rows: 85% 15%;
+}
+
+.table-container {
+    height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.table-wrapper table {
+    width: 100%;
+    height: 100%;
+    border-collapse: collapse;
+    display: grid;
+    grid-template-rows: 20% 80%;
+}
+
+.table-wrapper table thead {
+    color: #fff;
+    border-bottom: solid 3px #00ffff;
+    position: relative; 
+    background-color: #1F293A;
+    position: sticky;
+    top: 0;
+}
+
+.table-wrapper table thead tr {
+    background-color: #1F293A;
+    height: 60%;
+    padding-top: 23px;
+}
+
+.table-wrapper table thead tr th {
+    height: 50%;
+    padding: 10px;
+    text-align: center;
+    border-right: solid 3px #00ffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.table-wrapper table thead tr,
+.table-wrapper table tbody tr {
+    display: grid;
+    grid-template-columns: repeat(4, 25%);
+    font-size: 22px;
+}
+
+.table-wrapper tbody tr {
+    height: 50px;
+    color: #ccc;
+    text-align: center;
+    border-bottom: solid 3px #00ffff;
+}
+
+.table-wrapper tbody tr td {
+    padding: 10px;
+    border-right: solid 3px #00ffff;
+}
+
+.table-wrapper table thead tr th:last-child,
+.table-wrapper tbody tr td:last-child {
+    border-right: none;
+}
+
+.no-data td {
+    width: 53vw;
+    text-align: center;
+    font-style: italic;
+    color: #999;
+}
+
+.back-btn-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top: dashed 5px #00ffff;
+}
+
+.back-btn-wrapper .back-btn {
+    height: 40px;
+    width: 150px;
+    border-radius: 15px;
+    border: solid 3px #000;
+    background-color: #EA7C25;
+    color: #000;
+    font-size: larger;
+    transition: .5s;
+    cursor: pointer;
+}
+
+.back-btn-wrapper .back-btn:hover {
+    scale: 1.2;
+} 
+
+
+/* .panel-container {
+    display: none;
+}
+
+.table-wrapper {
+    display: none;
+}
+
+.flip-container, .flip-inner {
+    display: none; 
+}*/
+
+.flip-container, .home-page {
+    transition: 2s;
+}
+
+
+/* se puede refactorzar, hay cosas que podemos llevarlo directo a las clases de arriba */
+.flip-container {
+    position: absolute;
+    perspective: 1000px;
+    height: 450px;
+    display: flex;
+    align-items: center;
+    width: 100vw;
+    transform: translateX(100%);
+}
+
+.flip-inner {
+    width: 100%;
+    height: 90%;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 1s;
+}
+
+.flip-inner.flipped {
+    transform: rotateY(180deg);
+}
+
+.panel-container, .table-wrapper {
+    backface-visibility: hidden;
+    position: absolute;
+}
+
+.table-wrapper {
+    transform: rotateY(180deg);
+}
+
+
+
+
 @media screen and (max-width: 450px) {
-    body, html {
-        overflow-y: hidden;
+    body {
+        overflow: hidden !important;
     }
 
-    .container {
-        /* border: solid 2px red; */
+    .home-page {
+        /* transform: translateX(-100%); */
+        /* height: 100%;
+        width: 100vw; */
+        border: solid;
+        /* overflow-y: hidden; */
+    }
+
+    .login-container {
+        /* overflow: hidden; */
+        /* width: 65%; */
     }
 
     .login-box {
-        /* border: solid 2px red; */
-        width: 300px;
+        scale: 0.85;
+        /* width: 100%; */
     }
 
-    .container span {
+    .sign-up-container {
+        /* display: none; */
+    }
+
+    .login-container span {
         transform: scale(1.5) rotate(calc(var(--i) * (360deg / 50)));
         z-index: -10;
+        scale: 1.09;
+        /* display: none; */
     }
 
-    .login-box h2 {
-        /* color: red; */
+    /* Diseño resposive para el panel de temperaturas */
+
+    .flip-container {
+        height: 50%;
+        width: 100%;
+        /* transform: translateX(0); */
+        overflow: hidden;
     }
+    
+    .flip-inner {
+        scale: 0.9;
+    }
+
+    .panel-container {
+        height: 100%;
+        width: 100%;
+        /* grid-template-rows: 20% 40% 40%; */
+    }
+
+    .data-wrapper {
+        display: flex;
+        align-items: center;
+        margin-left: 0;
+        /* border: solid; */
+    }
+
+    .data-wrapper-container {
+        width: 80%;
+    }
+
+    /* Diseño responsive para la tabla de datos */
+
+    .table-wrapper {
+        max-width: 100%;
+    }
+    
+    .table-container {
+        overflow-x: auto;
+    }
+
+    table {
+        width: 600px !important;
+    }
+
+    table thead tr th:last-child {
+        color: transparent;
+        position: relative;
+    }
+
+    table thead tr th:last-child::after {
+        content: 'Usuario';
+        position: absolute;
+        left: 25%;
+        color: #fff;
+    }
+
+
+
+
 }

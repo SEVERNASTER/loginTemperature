@@ -6,106 +6,217 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="responsive.css">
+    <!-- <link rel="stylesheet" href="panelTemerature.css"> -->
+    <!-- <link rel="stylesheet" href="dataTable.css"> -->
+    <!-- <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script> -->
+    <!-- Firebase Firestore -->
+    <!-- <script src="script.js" defer type="module"></script> -->
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script src="main.js" type="module" defer></script>
 </head>
 
 <body>
-    <!-- <div class="wrapper">
-        <div class="form-wrapper sign-in">
+    <div class="custom-alert-window" id="customAlertWindow">
+        <i data-feather="check-circle" id="check" class="window-icons"></i>
+        <i data-feather="alert-triangle" id="alert" class="window-icons"></i>
+        <i data-feather="x-circle" id="error" class="window-icons"></i>
+        <p>Texto de ejemplo</p>
+    </div>
+    <div class="home-page" id="homePage">
+
+
+        <div class="sign-up-container" id="signUpScreen">
+            <div class="signin-wrapper" id="signinWrapper">
+                <div class="wrapper" id="wrapper">
+                    <div class="form-wrapper sign-in">
+                        <div class="login-box" id="signInForm">
+                            <h2>Sign up</h2>
+                            <form>
+                                <div class="input-group">
+                                    <input type="text" name="" id="inputEmail" required>
+                                    <label for="inputEmail">E-mail</label>
+                                </div>
+                                <div class="input-group">
+                                    <input type="text" name="" id="signUpInputUsername" required>
+                                    <label for="signUpInputUsername">Username</label>
+                                </div>
+                                <div class="input-group">
+                                    <input type="password" name="" id="signUpInputPassword" required>
+                                    <label for="signUpInputPassword">Password</label>
+                                </div>
+                                <div class="remember">
+                                    <label for="rememberMe"><input type="checkbox" name="" id="rememberMe"> Remember
+                                        me</label>
+                                </div>
+                                <div class="signup-buttons">
+                                    <button id="signUpCreateAccountBtn">Create account</button>
+                                    <button id="signUpScreenGoBackBtn">Go back</button>
+                                </div>
+                                <!-- <div class="sign-up-link">
+                                <p>Don't have an account? <a href="#" class="sign-up-btn">Sign up</a></p>
+                            </div> -->
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!--loggin Screen  -->
+
+        <div class="login-container" id="loginScreen">
             <div class="login-box">
                 <h2>Login</h2>
-                <form action="#">
-                    <div class="input-group">
-                        <input type="text" name="" id="inputUsername">
-                        <label for="inputUsername">Username</label>
+                <form>
+                    <div class="input-box">
+                        <input type="text" name="" id="loginInputUsername" required>
+                        <label for="loginInputUsername">Username</label>
                     </div>
-                    <div class="input-group">
-                        <input type="password" name="" id="inputPassword">
-                        <label for="inputPassword">Password</label>
+                    <div class="input-box">
+                        <input type="password" id="loginInputPassword" required>
+                        <label for="loginInputPassword">Password</label>
                     </div>
-                    <div class="remember">
-                        <label for=""><input type="checkbox" name="" id=""> Remember me</label>
+                    <div class="forgot-pass">
+                        <a href="#">Forgot your password?</a>
                     </div>
-                    <button>Login</button>
-                    <div class="sign-up-link">
-                        <p>Don't have an account? <a href="#" class="sign-up-btn">Sign up</a></p>
+                    <button class="login-btn" id="loginBtn">Login</button>
+                    <div class="signup-link">
+                        <a id="signUpLink">Sign up</a>
                     </div>
                 </form>
             </div>
-        </div> -->
 
-    <div class="container">
-        <div class="login-box">
-            <h2>Login</h2>
-            <form action="#">
-                <div class="input-box">
-                    <input type="text" name="" id="inputUsername" required>
-                    <label for="inputUsername">Username</label>
-                </div>
-                <div class="input-box">
-                    <input type="password" id="inputPassword" required>
-                    <label for="inputPassword">Password</label>
-                </div>
-                <div class="forgot-pass">
-                    <a href="#">Forgot your password?</a>
-                </div>
-                <button class="login-btn">Login</button>
-                <div class="signup-link">
-                    <a href="#">Sign up</a>
-                </div>
-            </form>
+            <span style="--i:0;"></span>
+            <span style="--i:1;"></span>
+            <span style="--i:2;"></span>
+            <span style="--i:3;"></span>
+            <span style="--i:4;"></span>
+            <span style="--i:5;"></span>
+            <span style="--i:6;"></span>
+            <span style="--i:7;"></span>
+            <span style="--i:8;"></span>
+            <span style="--i:9;"></span>
+            <span style="--i:10;"></span>
+            <span style="--i:11;"></span>
+            <span style="--i:12;"></span>
+            <span style="--i:13;"></span>
+            <span style="--i:14;"></span>
+            <span style="--i:15;"></span>
+            <span style="--i:16;"></span>
+            <span style="--i:17;"></span>
+            <span style="--i:18;"></span>
+            <span style="--i:19;"></span>
+            <span style="--i:20;"></span>
+            <span style="--i:21;"></span>
+            <span style="--i:22;"></span>
+            <span style="--i:23;"></span>
+            <span style="--i:24;"></span>
+            <span style="--i:25;"></span>
+            <span style="--i:26;"></span>
+            <span style="--i:27;"></span>
+            <span style="--i:28;"></span>
+            <span style="--i:29;"></span>
+            <span style="--i:30;"></span>
+            <span style="--i:31;"></span>
+            <span style="--i:32;"></span>
+            <span style="--i:33;"></span>
+            <span style="--i:34;"></span>
+            <span style="--i:35;"></span>
+            <span style="--i:36;"></span>
+            <span style="--i:37;"></span>
+            <span style="--i:38;"></span>
+            <span style="--i:39;"></span>
+            <span style="--i:40;"></span>
+            <span style="--i:41;"></span>
+            <span style="--i:42;"></span>
+            <span style="--i:43;"></span>
+            <span style="--i:44;"></span>
+            <span style="--i:45;"></span>
+            <span style="--i:46;"></span>
+            <span style="--i:47;"></span>
+            <span style="--i:48;"></span>
+            <span style="--i:49;"></span>
         </div>
-
-        <span style="--i:0;"></span>
-        <span style="--i:1;"></span>
-        <span style="--i:2;"></span>
-        <span style="--i:3;"></span>
-        <span style="--i:4;"></span>
-        <span style="--i:5;"></span>
-        <span style="--i:6;"></span>
-        <span style="--i:7;"></span>
-        <span style="--i:8;"></span>
-        <span style="--i:9;"></span>
-        <span style="--i:10;"></span>
-        <span style="--i:11;"></span>
-        <span style="--i:12;"></span>
-        <span style="--i:13;"></span>
-        <span style="--i:14;"></span>
-        <span style="--i:15;"></span>
-        <span style="--i:16;"></span>
-        <span style="--i:17;"></span>
-        <span style="--i:18;"></span>
-        <span style="--i:19;"></span>
-        <span style="--i:20;"></span>
-        <span style="--i:21;"></span>
-        <span style="--i:22;"></span>
-        <span style="--i:23;"></span>
-        <span style="--i:24;"></span>
-        <span style="--i:25;"></span>
-        <span style="--i:26;"></span>
-        <span style="--i:27;"></span>
-        <span style="--i:28;"></span>
-        <span style="--i:29;"></span>
-        <span style="--i:30;"></span>
-        <span style="--i:31;"></span>
-        <span style="--i:32;"></span>
-        <span style="--i:33;"></span>
-        <span style="--i:34;"></span>
-        <span style="--i:35;"></span>
-        <span style="--i:36;"></span>
-        <span style="--i:37;"></span>
-        <span style="--i:38;"></span>
-        <span style="--i:39;"></span>
-        <span style="--i:40;"></span>
-        <span style="--i:41;"></span>
-        <span style="--i:42;"></span>
-        <span style="--i:43;"></span>
-        <span style="--i:44;"></span>
-        <span style="--i:45;"></span>
-        <span style="--i:46;"></span>
-        <span style="--i:47;"></span>
-        <span style="--i:48;"></span>
-        <span style="--i:49;"></span>
     </div>
+
+
+
+    <!-- temperature panel -->
+    <div class="flip-container">
+        <div class="flip-inner">
+            <section class="panel-container">
+                <div class="panel-title">
+                    <h2>Monitor de Temperatura</h2>
+                </div>
+                <div class="data-wrapper">
+                    <div class="data-wrapper-container">
+                        <p>Fecha Actual: <span id="date" class="panel-data">2024/03/05</span></p>
+                        <p>Hora: <span id="time" class="panel-data">13:52</span></p>
+                        <p>Temperatura: <span id="temperature" class="panel-data">17</span></p>
+                        <p>Estado del login: <span id="loggin-state">Activo</span></p>
+                    </div>
+                </div>
+                <div class="buttons-wrapper">
+                    <button id="saveData">Guardar Dato</button>
+                    <button id="seeData">Ver Temperaturas</button>
+                    <button id="logout">Detener login</button>
+                </div>
+            </section>
+
+
+            <!-- temperature data table -->
+
+            <section class="table-wrapper">
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Temperatura</th>
+                                <th>Guardado el</th>
+                                <th>A horas</th>
+                                <th>Por el usuario</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr id="noData" class="no-data">
+                                <td colspan="4">No hay temperaturas registradas</td>
+                            </tr>
+                            <!-- <tr>
+                                <td>28 C</td>
+                    <td>2024/05/23</td>
+                    <td>22:05</td>
+                    <td>@userName</td>
+                            </tr> -->
+
+                            <!-- <tr></tr>
+                            <tr></tr>
+                            <tr></tr>
+                            <tr></tr>
+                            <tr></tr>
+                            <tr></tr>
+                            <tr></tr>
+                            <tr></tr>
+                            <tr></tr>
+                            <tr></tr> -->
+                        </tbody>
+                    </table>
+                </div>
+                <div class="back-btn-wrapper">
+                    <button class="back-btn" id="backBtn">Volver</button>
+                </div>
+            </section>
+
+
+        </div>
+    </div>
+
+    <script>
+        feather.replace();
+    </script>
 </body>
 
 </html>
