@@ -88,7 +88,7 @@ loginBtn.addEventListener('click', async (e) => {
         spans.forEach(span => {
             span.style.backgroundColor = alertColor;
         });
-        deployCustomWindowAlert('No se permiten campos vacios', alertColor, 'alert', 2000);
+        deployCustomWindowAlert(window.innerWidth < 500 ? 'No dejes campos vacios' : 'No se permiten campos vacios', alertColor, 'alert', 2000);
         deployLoadingAnimation2(false);
         setTimeout(() => {
             clearSpansStyles();
@@ -103,7 +103,7 @@ loginBtn.addEventListener('click', async (e) => {
         currentUser = existingUsers.docs[0].data().username;
         giveUserAccess();
     } else {
-        deployCustomWindowAlert('Usuario o contraseña incorrectos', errorColor, 'error', 1500);
+        deployCustomWindowAlert(window.innerWidth < 500 ? 'No dejes campos vacios' : 'No se permiten campos vacios', errorColor, 'error', 1500);
         checkCredentials(false);
         setTimeout(() => {
             clearSpansStyles();
@@ -167,6 +167,11 @@ function clearSpansStyles() {
 function switchToAppContent() {
     homePage.style.transform = 'translateX(-100%)';
     appContent.style.transform = 'translateX(0)';
+    if(window.innerWidth < 500){
+        setTimeout(() => {
+            appContent.style.scale = '1';
+        }, 500);
+    }
 }
 
 function recoverLoginInputData() {
@@ -185,7 +190,10 @@ logoutBtn.addEventListener('click', () => {
     currentUser = '';
     appContent.style.transform = 'translateX(100%)';
     homePage.style.transform = 'translateX(0)';
-})
+    if(window.innerWidth < 500){
+        appContent.style.scale = '0';
+    }
+});
 
 
 // para cambiar enre login y sign up
@@ -214,7 +222,7 @@ function backToLogin(e) {
 document.getElementById('signUpCreateAccountBtn').addEventListener('click', (e) => {
     e.preventDefault();
     if (recoverSignInInputData().some(value => value === '')) {
-        deployCustomWindowAlert('No se permiten campos vacios', alertColor, 'alert', 2500);
+        deployCustomWindowAlert(window.innerWidth < 500 ? 'No dejes campos vacios' : 'No se permiten campos vacios', alertColor, 'alert', 2500);
         changeSignInToErrorColor(false);
         return;
     }
@@ -293,7 +301,7 @@ function recoverSignInInputData() {
 async function checkExistingUser(e, username, email, inputData) {
     if (await existsTheUser(username, email)) {
         setSignInErrorFeedback();
-        deployCustomWindowAlert('Usuario o correo ya existentes', errorColor, 'error', 2500);
+        deployCustomWindowAlert('El usuario o correo ya existe', errorColor, 'error', 2500);
         return;
     }
     await createNewUser(inputData);
