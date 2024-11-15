@@ -13,6 +13,7 @@ import {
     limit,
     orderBy
 } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
+import { getDatabase, ref, onValue } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-database.js"
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -55,6 +56,22 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 
 const db = getFirestore(app);
+
+
+const dbRT = getDatabase(app);
+const dbRef = ref(dbRT);
+
+
+onValue(dbRef, (snapshot) => {
+    const data = snapshot.val();
+    if (data) {
+        const temp1 = data.Temperatura1;
+        document.getElementById('temperature').textContent = temp1.toFixed(1) + ' °C';
+    } else {
+        console.log('No se encontraron datos en la base de datos.');
+    }
+});
+
 
 
 // para actualizar el tiempo y la fecha
