@@ -773,5 +773,24 @@ h2 {
         color: #fff;
     }
 
+    .input-box input {
+        font-size: larger;
+    }
+/* 
+    .home-page{
+        transform: translateX(-100%);
+    }
+
+    .flip-container {
+        transform: translateX(0);
+    } */
+
+    .no-data td {
+        width: 100vw;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
 
 }

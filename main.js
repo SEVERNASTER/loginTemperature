@@ -558,7 +558,7 @@ async function deleteAllTemperatureDocuments() {
     console.log("Todos los documentos eliminados.");
 }
 
-
+deleteAllTemperatureDocuments()
 
 
 
