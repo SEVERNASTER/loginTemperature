@@ -66,7 +66,7 @@ onValue(dbRef, (snapshot) => {
     const data = snapshot.val();
     if (data) {
         const temp1 = data.Temperatura1;
-        document.getElementById('temperature').textContent = temp1.toFixed(1) + ' °C';
+        document.getElementById('temperature').textContent = temp1.toFixed(1);
     } else {
         console.log('No se encontraron datos en la base de datos.');
     }
